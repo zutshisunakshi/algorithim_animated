@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Web</title>
+    <style type="text/css">
+        @keyframes rotatify {
+            from { transform: rotateY(  0deg) translateZ(0px);  }
+            to { transform: rotateY(359deg) rotateX( 180deg) translateZ(0px);  }
+
+        }
+        .cube.show-front  { transform: translateZ(-20px) rotateY(   0deg); }
+        .cube.show-right  { transform: translateZ(-20px) rotateY( -90deg); }
+        .cube.show-back   { transform: translateZ(-20px) rotateY(-180deg); }
+        .cube.show-left   { transform: translateZ(-20px) rotateY(  90deg); }
+        .cube.show-top    { transform: translateZ(-20px) rotateX( -90deg); }
+        .cube.show-bottom { transform: translateZ(-20px) rotateX(  90deg); }
+
+        .cube__face--front  { transform: rotateY(  0deg) translateZ(20px); }
+        .cube__face--right  { transform: rotateY( 90deg) translateZ(20px); }
+        .cube__face--back   { transform: rotateY(180deg) translateZ(20px); }
+        .cube__face--left   { transform: rotateY(-90deg) translateZ(20px); }
+        .cube__face--top    { transform: rotateX( 90deg) translateZ(20px); }
+        .cube__face--bottom { transform: rotateX(-90deg) translateZ(20px); }
+        .cube {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 2s;
+        }
+
+        .cube__face {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: gray;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        .active .cube__face,
+        .active.rotatable{
+            background-color: green;
+        }
+        .active.rotatable{
+            animation: rotatify 2s linear 1s infinite;
+        }
+        .node{
+            /*min-width: 20px;*/
+            /*min-height: 20px;*/
+            /*display: inline-block;*/
+            /*transform: rotateY(38deg);*/
+        }
+        .left{
+            position: relative;
+            left: -30px;
+            top: 10px;
+        }
+        .right{
+            position: absolute;
+            left: 44px;
+            top: 50px;
+        }
+        .root{
+            left: 50%;
+        }
+        .scene {
+            width: 40px;
+            height: 40px;
+            perspective: 600px;
+        }
+
+    </style>
+</head>
+<body>
+
+<script src="./app.js" ></script>
+
+</body>
+</html>
